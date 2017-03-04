@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <EditText
+        android:id="@+id/fromCliente_edtPhoto"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/fromCliente_edtPhoto"
+        android:inputType="text"
+        android:labelFor="@+id/fromCliente_edtPhoto" />
+
+    <EditText
+        android:id="@+id/fromCliente_edtName"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromCliente_edtPhoto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/fromCliente_edtName"
+        android:inputType="text"
+        android:labelFor="@+id/fromCliente_edtName" />
+
+    <EditText
+        android:id="@+id/fromCliente_edtSurname"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromCliente_edtName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/fromCliente_edtSurname"
+        android:inputType="text"
+        android:labelFor="@+id/fromCliente_edtSurname" />
+
+    <EditText
+        android:id="@+id/fromCliente_edtLocation"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromCliente_edtSurname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/fromCliente_edtLocation"
+        android:inputType="text"
+        android:labelFor="@+id/fromCliente_edtLocation" />
+
+    <EditText
+        android:id="@+id/fromCliente_edtNumber"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromCliente_edtLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/fromCliente_edtNumber"
+        android:inputType="number"
+        android:labelFor="@+id/fromCliente_edtNumber" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/formCliente_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromCliente_edtNumber"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/dialogClient_photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialogClient_photo"
+        android:layout_centerHorizontal="true"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/dialogClient_name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/dialogClient_name_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/dialogClient_name_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_surname_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_name_txt"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/dialogClient_surname_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_name_txt"
+            android:layout_toEndOf="@+id/dialogClient_surname_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_location_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_surname_txt"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/dialogClient_location_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_surname_txt"
+            android:layout_toEndOf="@+id/dialogClient_location_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_number_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_location_txt"
+            android:layout_marginEnd="20dp"
+            android:text="@string/dialogClient_number_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/dialogClient_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_location_txt"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/dialogClient_number_txt"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialogClient_number">
+
+            <ImageButton
+                android:id="@+id/dialogClient_btnCall"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/ic_menu_call" />
+
+            <ImageButton
+                android:id="@+id/dialogClient_btnMap"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimaryDark"
+                android:contentDescription="@string/app_name"
+                android:src="@android:drawable/ic_dialog_map" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

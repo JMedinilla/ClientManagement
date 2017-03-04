@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/profile_name"
+        android:inputType="text"
+        android:labelFor="@+id/profile_name" />
+
+    <EditText
+        android:id="@+id/profile_cif"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/profile_cif"
+        android:inputType="text"
+        android:labelFor="@+id/profile_cif" />
+
+    <EditText
+        android:id="@+id/profile_location"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_cif"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/profile_location"
+        android:inputType="text"
+        android:labelFor="@+id/profile_location" />
+
+    <EditText
+        android:id="@+id/profile_phone"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_location"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/profile_phone"
+        android:inputType="phone"
+        android:labelFor="@+id/profile_phone" />
+
+    <EditText
+        android:id="@+id/profile_mail"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_phone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/profile_mail"
+        android:inputType="text"
+        android:labelFor="@+id/profile_mail" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_mail"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/ic_menu_save"
+        app:fabSize="normal" />
+</RelativeLayout>
