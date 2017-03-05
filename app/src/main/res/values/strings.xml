@@ -2,7 +2,7 @@
     <string name="app_name">ClientManagement</string>
     <string name="home_btnMeeting">MEETINGS</string>
     <string name="home_btnClient">CLIENTS</string>
-    <string name="home_btnProfile">COMPANY / PROFILE</string>
+    <string name="home_btnProfile">COMPANY PROFILE</string>
     <string name="insertsuccess">Insert success</string>
     <string name="inserterror">Insert error</string>
     <string name="updatesuccess">Update success</string>
@@ -33,7 +33,7 @@
     <string name="profile_location">Location</string>
     <string name="profile_phone">Phone</string>
     <string name="profile_mail">Mail</string>
-    <string name="AcceptAlert">Aceptar</string>
+    <string name="AcceptAlert">Accept</string>
     <string name="TitleAlert">Not company detected</string>
     <string name="MessageAlert">There is no company stored. Go to the Company form.</string>
     <string name="no_clients_form">There are no clients to choose</string>
