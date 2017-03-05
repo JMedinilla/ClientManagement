@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import deint.jvmed.clientmanagement.fragments.Company;
-import deint.jvmed.clientmanagement.fragments.Diary;
 import deint.jvmed.clientmanagement.fragments.Home;
 import deint.jvmed.clientmanagement.fragments.forms.Form_Client;
 import deint.jvmed.clientmanagement.fragments.forms.Form_Meeting;
@@ -18,6 +17,7 @@ import deint.jvmed.clientmanagement.pojo.Client;
 import deint.jvmed.clientmanagement.pojo.Meeting;
 import deint.jvmed.clientmanagement.preferences.Profile;
 import deint.jvmed.clientmanagement.receivers.InsertReceiver;
+import deint.jvmed.clientmanagement.receivers.TodayMeetings;
 
 public class Activity_Home extends AppCompatActivity implements
         Home.fragmentHomeInterface, List_Client.fragmentListClientInterface, List_Meeting.fragmentListMeetingInterface,
@@ -29,7 +29,6 @@ public class Activity_Home extends AppCompatActivity implements
     Company fragmentCompany;
     Form_Client fragmentFormClient;
     Form_Meeting fragmentFormMeeting;
-    Diary fragmentDiary;
 
     Profile profile;
 
@@ -54,6 +53,8 @@ public class Activity_Home extends AppCompatActivity implements
 
         if (num == InsertReceiver.OPEN_FRAGMENT_FROM_NOTIFICATION) {
             openClientFragment();
+        } else if (num == TodayMeetings.OPEN_FRAGMENT_FROM_NOTIFICATION) {
+            openMeetingFragment();
         } else {
             if (profile.getName().isEmpty()) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Activity_Home.this);

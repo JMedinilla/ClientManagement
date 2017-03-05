@@ -40,7 +40,7 @@ public class Adapter_Meeting extends ArrayAdapter<Meeting> {
 
         Meeting meeting = getItem(position);
         if (meeting != null) {
-            meetingHolder.name.setText(meeting.getClient().getName());
+            meetingHolder.name.setText(meeting.getClient().getName() + " " + meeting.getClient().getSurname());
             meetingHolder.date.setText(meeting.getDate());
         }
 

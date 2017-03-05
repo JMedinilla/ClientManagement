@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 import deint.jvmed.clientmanagement.Activity_Home;
+import deint.jvmed.clientmanagement.R;
 
 public class InsertReceiver extends BroadcastReceiver {
     public static final String ACTION_INSERT = "deint.jvmed.clientmanagement_INSERT";
@@ -23,8 +24,8 @@ public class InsertReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, OPEN_LIST, newIntent, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-        builder.setContentTitle("New client inserted");
-        builder.setContentText("Click to open the clients list");
+        builder.setContentTitle(context.getString(R.string.insertNotification_title));
+        builder.setContentText(context.getString(R.string.insertNotification_description));
         builder.setSmallIcon(android.R.mipmap.sym_def_app_icon);
         builder.setContentIntent(pendingIntent);
 

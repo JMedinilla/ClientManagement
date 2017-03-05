@@ -65,7 +65,7 @@ public class Form_Client extends Fragment implements ValidationPresenter.ViewCli
                     updatedPojo.setLocation(location.getText().toString());
                     updatedPojo.setNumber(number.getText().toString());
 
-                    callback.fromFormToHome(updatedPojo, true);
+                    validationPresenter.validateClient(updatedPojo);
                 } else {
                     Client client = new Client(
                             photo.getText().toString(), name.getText().toString(),
@@ -73,7 +73,7 @@ public class Form_Client extends Fragment implements ValidationPresenter.ViewCli
                             number.getText().toString()
                     );
 
-                    callback.fromFormToHome(client, false);
+                    validationPresenter.validateClient(client);
                 }
             }
         });
@@ -106,44 +106,52 @@ public class Form_Client extends Fragment implements ValidationPresenter.ViewCli
     }
 
     @Override
-    public void validationResponse(int result) {
+    public void validationResponse(int result, Client pCl) {
+        boolean valid = false;
         String msg = "";
         switch (result) {
             case ValidationPresenter.ERROR_CLIENT_NAME_EMPTY:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NAME_EMPTY);
                 break;
             case ValidationPresenter.ERROR_CLIENT_NAME_SHORT:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NAME_SHORT);
                 break;
             case ValidationPresenter.ERROR_CLIENT_NAME_LONG:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NAME_LONG);
                 break;
             case ValidationPresenter.ERROR_CLIENT_SURNAME_EMPTY:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_SURNAME_EMPTY);
                 break;
             case ValidationPresenter.ERROR_CLIENT_SURNAME_SHORT:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_SURNAME_SHORT);
                 break;
             case ValidationPresenter.ERROR_CLIENT_SURNAME_LONG:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_SURNAME_LONG);
                 break;
             case ValidationPresenter.ERROR_CLIENT_LOCATION_EMPTY:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_LOCATION_EMPTY);
                 break;
             case ValidationPresenter.ERROR_CLIENT_NUMBER_EMPTY:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NUMBER_EMPTY);
                 break;
             case ValidationPresenter.ERROR_CLIENT_NUMBER_SHORT:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NUMBER_SHORT);
                 break;
             case ValidationPresenter.ERROR_CLIENT_NUMBER_LONG:
-                msg = "";
+                msg = getString(R.string.ERROR_CLIENT_NUMBER_LONG);
                 break;
             case ValidationPresenter.VALID_CLIENT:
-                msg = "";
+                valid = true;
+                if (update_mode) {
+                    callback.fromFormToHome(pCl, true);
+                } else {
+                    callback.fromFormToHome(pCl, false);
+                }
                 break;
         }
-        showResponseToast(msg);
+        if (!valid) {
+            showResponseToast(msg);
+        }
     }
 
     public void showResponseToast(String msg) {

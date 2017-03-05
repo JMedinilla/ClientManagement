@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".services.Service_MeetingCheck"
+            android:exported="false" />
 
         <receiver
             android:name=".receivers.TodayMeetings"

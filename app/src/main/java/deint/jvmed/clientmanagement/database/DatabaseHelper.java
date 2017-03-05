@@ -65,12 +65,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return getWritableDatabase();
     }
 
-    SQLiteDatabase openDatabase() {
+    public SQLiteDatabase openDatabase() {
         database = getWritableDatabase();
         return database;
     }
 
-    void closeDatabase() {
+    public void closeDatabase() {
         database.close();
     }
 }

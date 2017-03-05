@@ -19,8 +19,10 @@ public interface ValidationPresenter {
     int ERROR_CLIENT_NUMBER_LONG = 132;
     int VALID_CLIENT = 140;
 
-    int ERROR_MEETING_DATE_PAST = 200;
-    int ERROR_MEETING_HOUR_END_BEFORE = 210;
+    int ERROR_MEETING_DATE_FORMAT = 200;
+    int ERROR_MEETING_HOUR_START_FORMAT = 210;
+    int ERROR_MEETING_HOUR_END_FORMAT = 211;
+    int ERROR_MEETING_HOUR_END_BEFORE = 212;
     int ERROR_MEETING_DESCRIPTION_EMPTY = 220;
     int ERROR_MEETING_DESCRIPTION_SHORT = 221;
     int ERROR_MEETING_DESCRIPTION_LONG = 222;
@@ -33,11 +35,11 @@ public interface ValidationPresenter {
     void implSelectSpinnerClients();
 
     interface ViewClient {
-        void validationResponse(int result);
+        void validationResponse(int result, Client pCl);
     }
 
     interface ViewMeeting {
-        void validationResponse(int result);
+        void validationResponse(int result, Meeting pMe);
 
         void viewSelectSpinnerClientsResponse(List<SpinnerClient> spinnerClients);
     }

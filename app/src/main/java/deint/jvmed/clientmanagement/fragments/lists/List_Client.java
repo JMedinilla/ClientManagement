@@ -111,7 +111,7 @@ public class List_Client extends Fragment implements PresenterClient.View {
     public void viewInsertResponse(long rsult) {
         if (rsult != -1) {
             Toast.makeText(getContext(), R.string.insertsuccess, Toast.LENGTH_SHORT).show();
-            getActivity().sendBroadcast(new Intent(InsertReceiver.ACTION_INSERT));
+            //getActivity().sendBroadcast(new Intent(InsertReceiver.ACTION_INSERT));
             getActivity().onBackPressed();
         } else {
             Toast.makeText(getContext(), R.string.inserterror, Toast.LENGTH_SHORT).show();

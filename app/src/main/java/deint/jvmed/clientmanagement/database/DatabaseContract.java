@@ -2,7 +2,7 @@ package deint.jvmed.clientmanagement.database;
 
 import android.provider.BaseColumns;
 
-class DatabaseContract {
+public class DatabaseContract {
     static class ClientTable implements BaseColumns {
         static final String TABLE_NAME = "clients";
         static final String COLUMN_ID = _ID;
@@ -29,16 +29,16 @@ class DatabaseContract {
         );
     }
 
-    static class MeetingTable implements BaseColumns {
-        static final String TABLE_NAME = "meetings";
+    public static class MeetingTable implements BaseColumns {
+        public static final String TABLE_NAME = "meetings";
         static final String COLUMN_ID = _ID;
         static final String COLUMN_CLIENT = "me_client";
-        static final String COLUMN_DATE = "me_date";
+        public static final String COLUMN_DATE = "me_date";
         static final String COLUMN_START = "me_start";
         static final String COLUMN_END = "me_end";
         static final String COLUMN_DESCRIPTION = "me_description";
 
-        static final String[] ALL_COLUMNS = new String[]{
+        public static final String[] ALL_COLUMNS = new String[]{
                 COLUMN_ID, COLUMN_CLIENT, COLUMN_DATE,
                 COLUMN_START, COLUMN_END, COLUMN_DESCRIPTION
         };

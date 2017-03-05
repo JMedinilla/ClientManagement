@@ -28,6 +28,7 @@ public class Form_Meeting extends Fragment implements ValidationPresenter.ViewMe
     ValidationPresenterImpl validationPresenter;
 
     boolean update_mode;
+    boolean enoughClients;
     Meeting updatedPojo;
 
     Spinner clients;
@@ -48,6 +49,7 @@ public class Form_Meeting extends Fragment implements ValidationPresenter.ViewMe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        enoughClients = false;
         update_mode = false;
 
         validationPresenter = new ValidationPresenterImpl(this);
@@ -67,33 +69,37 @@ public class Form_Meeting extends Fragment implements ValidationPresenter.ViewMe
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String selectedName = clients.getSelectedItem().toString();
-                int idClient = 0;
-                for (int i = 0; i < names.length; i++) {
-                    if (selectedName.equals(spinnerClients.get(i).getName() + " " + spinnerClients.get(i).getSurname())) {
-                        idClient = spinnerClients.get(i).getId();
+                if (enoughClients) {
+                    String selectedName = clients.getSelectedItem().toString();
+                    int idClient = 0;
+                    for (int i = 0; i < names.length; i++) {
+                        if (selectedName.equals(spinnerClients.get(i).getName() + " " + spinnerClients.get(i).getSurname())) {
+                            idClient = spinnerClients.get(i).getId();
+                        }
                     }
-                }
-                String date = edtDate.getText().toString();
-                String startHour = edtStart.getText().toString();
-                String endHour = edtEnd.getText().toString();
-                String description = edtDescription.getText().toString();
+                    String date = edtDate.getText().toString();
+                    String startHour = edtStart.getText().toString();
+                    String endHour = edtEnd.getText().toString();
+                    String description = edtDescription.getText().toString();
 
-                Client client = new Client(
-                        idClient, "default", "default", "default", "default", "default"
-                );
-                if (update_mode) {
-                    updatedPojo.setClient(client);
-                    updatedPojo.setDate(date);
-                    updatedPojo.setStart(startHour);
-                    updatedPojo.setEnd(endHour);
-                    updatedPojo.setDescription(description);
+                    Client client = new Client(
+                            idClient, "default", "default", "default", "default", "default"
+                    );
+                    if (update_mode) {
+                        updatedPojo.setClient(client);
+                        updatedPojo.setDate(date);
+                        updatedPojo.setStart(startHour);
+                        updatedPojo.setEnd(endHour);
+                        updatedPojo.setDescription(description);
 
-                    callback.fromFormToHome(updatedPojo, true);
+                        validationPresenter.validateMeeting(updatedPojo);
+                    } else {
+                        Meeting meeting = new Meeting(client, date, startHour, endHour, description);
+
+                        validationPresenter.validateMeeting(meeting);
+                    }
                 } else {
-                    Meeting meeting = new Meeting(client, date, startHour, endHour, description);
-
-                    callback.fromFormToHome(meeting, false);
+                    Toast.makeText(getContext(), R.string.no_clients_form, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -132,33 +138,50 @@ public class Form_Meeting extends Fragment implements ValidationPresenter.ViewMe
     }
 
     @Override
-    public void validationResponse(int result) {
+    public void validationResponse(int result, Meeting pMe) {
+        boolean valid = false;
         String msg = "";
         switch (result) {
-            case ValidationPresenter.ERROR_MEETING_DATE_PAST:
-                msg = "";
+            case ValidationPresenter.ERROR_MEETING_DATE_FORMAT:
+                msg = getString(R.string.ERROR_MEETING_DATE_FORMAT);
+                break;
+            case ValidationPresenter.ERROR_MEETING_HOUR_START_FORMAT:
+                msg = getString(R.string.ERROR_MEETING_HOUR_START_FORMAT);
+                break;
+            case ValidationPresenter.ERROR_MEETING_HOUR_END_FORMAT:
+                msg = getString(R.string.ERROR_MEETING_HOUR_END_FORMAT);
                 break;
             case ValidationPresenter.ERROR_MEETING_HOUR_END_BEFORE:
-                msg = "";
+                msg = getString(R.string.ERROR_MEETING_HOUR_END_BEFORE);
                 break;
             case ValidationPresenter.ERROR_MEETING_DESCRIPTION_EMPTY:
-                msg = "";
+                msg = getString(R.string.ERROR_MEETING_DESCRIPTION_EMPTY);
                 break;
             case ValidationPresenter.ERROR_MEETING_DESCRIPTION_SHORT:
-                msg = "";
+                msg = getString(R.string.ERROR_MEETING_DESCRIPTION_SHORT);
                 break;
             case ValidationPresenter.ERROR_MEETING_DESCRIPTION_LONG:
-                msg = "";
+                msg = getString(R.string.ERROR_MEETING_DESCRIPTION_LONG);
                 break;
             case ValidationPresenter.VALID_MEETING:
-                msg = "";
+                valid = true;
+                if (update_mode) {
+                    callback.fromFormToHome(pMe, true);
+                } else {
+                    callback.fromFormToHome(pMe, false);
+                }
                 break;
         }
-        showResponseToast(msg);
+        if (!valid) {
+            showResponseToast(msg);
+        }
     }
 
     @Override
     public void viewSelectSpinnerClientsResponse(List<SpinnerClient> spinnerClients) {
+        if (spinnerClients.size() > 0) {
+            enoughClients = true;
+        }
         this.spinnerClients = spinnerClients;
         names = new String[spinnerClients.size()];
 

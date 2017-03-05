@@ -9,7 +9,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="24dp" />
 
     <EditText
         android:id="@+id/formMeeting_date"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/formMeeting_spinner"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="24dp"
         android:hint="@string/formMeeting_date"
         android:inputType="date"
         android:labelFor="@+id/fromCliente_edtName" />
@@ -28,9 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/formMeeting_date"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="24dp"
         android:hint="@string/formMeeting_start"
-        android:inputType="text"
+        android:inputType="time"
         android:labelFor="@+id/fromCliente_edtSurname" />
 
     <EditText
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/formMeeting_start"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="24dp"
         android:hint="@string/formMeeting_end"
-        android:inputType="text"
+        android:inputType="time"
         android:labelFor="@+id/fromCliente_edtLocation" />
 
     <EditText
@@ -50,9 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/formMeeting_end"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="24dp"
         android:hint="@string/formMeeting_description"
-        android:inputType="number"
+        android:inputType="text"
         android:labelFor="@+id/fromCliente_edtNumber"
         android:lines="6"
         android:maxLines="6"

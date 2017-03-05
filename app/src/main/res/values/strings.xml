@@ -36,4 +36,27 @@
     <string name="AcceptAlert">Aceptar</string>
     <string name="TitleAlert">Not company detected</string>
     <string name="MessageAlert">There is no company stored. Go to the Company form.</string>
+    <string name="no_clients_form">There are no clients to choose</string>
+    <string name="ERROR_MEETING_DATE_FORMAT">The date has to be in YYYY-MM-DD format</string>
+    <string name="ERROR_MEETING_HOUR_START_FORMAT">The hour of start has to be in HH:MM format</string>
+    <string name="ERROR_MEETING_HOUR_END_FORMAT">The hour of end has to be in HH:MM format</string>
+    <string name="ERROR_MEETING_HOUR_END_BEFORE">The end hour is smaller than the start hour</string>
+    <string name="ERROR_MEETING_DESCRIPTION_EMPTY">There is no description</string>
+    <string name="ERROR_MEETING_DESCRIPTION_SHORT">The description is too short (min 6 characters)</string>
+    <string name="ERROR_MEETING_DESCRIPTION_LONG">The description is too long (min 200 characters)</string>
+    <string name="ERROR_CLIENT_NAME_EMPTY">There is no name</string>
+    <string name="ERROR_CLIENT_NAME_SHORT">The name is too short (min 3 characters)</string>
+    <string name="ERROR_CLIENT_NAME_LONG">The name is too long (max 20 characters)</string>
+    <string name="ERROR_CLIENT_SURNAME_EMPTY">There is no surname</string>
+    <string name="ERROR_CLIENT_SURNAME_SHORT">The surname is too short (min 3 characters)</string>
+    <string name="ERROR_CLIENT_SURNAME_LONG">The surname is too long (max 40 characters)</string>
+    <string name="ERROR_CLIENT_LOCATION_EMPTY">There is no location</string>
+    <string name="ERROR_CLIENT_NUMBER_EMPTY">There is no number</string>
+    <string name="ERROR_CLIENT_NUMBER_SHORT">The number is too short (min 9 characters)</string>
+    <string name="ERROR_CLIENT_NUMBER_LONG">The number is too long (max 9 characters)</string>
+    <string name="insertNotification_title">New client inserted</string>
+    <string name="insertNotification_description">Click to open the clients list</string>
+    <string name="meetingNotification_title">Meeting alert</string>
+    <string name="meetingNotification_desc">You have meetings for today, click to see the list</string>
+    <string name="meetingNotification_title_no">You do not have meetings today</string>
 </resources>
